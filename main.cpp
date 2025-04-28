@@ -5,6 +5,8 @@
 #include <deque>
 #include <cstdlib>
 #include <ctime>
+#include <stack>
+#include <queue>
 using namespace std;
 
 int main() {
@@ -138,6 +140,43 @@ int main() {
             cout << "New deque: ";
             for (int i : lowerTemps) {
                 cout << i << " ";
+            }
+            cout << endl;
+
+
+
+        }
+        if (number == 4) {
+            queue<int> q;
+            stack<int> s;
+
+
+            int a = 0, b = 1;
+            for (int i = 0; i < 10; i++) {
+                q.push(a);
+                int next = a + b;
+                a = b;
+                b = next;
+            }
+
+
+
+            while (!q.empty()) {
+                s.push(q.front());
+                q.pop();
+            }
+
+
+            while (!s.empty()) {
+                q.push(s.top());
+                s.pop();
+            }
+
+
+            cout << "Queue after:" << endl;
+            while (!q.empty()) {
+                cout << q.front() << " ";
+                q.pop();
             }
             cout << endl;
 

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <set>
+#include <map>
 #include <deque>
 #include <cstdlib>
 #include <ctime>
@@ -58,6 +60,48 @@ int main() {
                 cout << deq[i] << " ";
             }
             cout << endl;
+        }
+        if (number == 2) {
+            set<int> orderID;
+            map<int, string> orders;
+
+            while (true) {
+                string name;
+
+                int newID;
+                string info;
+
+                cout << "Enter order id: ";
+                cin >> newID;
+                if (orderID.find(newID) == orderID.end()) {
+                    cout << "Enter ordeer info: ";
+                    cin.ignore();
+                    getline(cin, info);
+
+                    orderID.insert(newID);
+                    orders[newID] = info;
+
+                    cout << "Good...!\n";
+                } else {
+                    cout << "ID already this.\n";
+                }
+
+                cout << "Stop addind ordeers y/n?: ";
+                cin >> name;
+                cin.ignore();
+                if (name == "y" or name == "Y") {break;}
+            }
+
+            cout << "\nAll orders:\n";
+            for (auto id : orderID) {
+                cout << "ID: " << id << ", Info: " << orders[id] << endl;
+            }
+
+
+
+
+
+
         }
 
         if (number != 1 and number != 2) {

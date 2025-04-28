@@ -183,6 +183,14 @@ int main() {
 
 
         }
+        if (number == 5) {
+
+
+
+
+
+
+        }
 
         if (number != 1 and number != 2) {
             cout << "Error! Enter a valid number!" << endl;

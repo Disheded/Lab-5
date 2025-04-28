@@ -12,6 +12,7 @@ int main() {
         int number;
         cout << "Please enter a number of exersice: ";
         cin >> number;
+        cin.ignore();
         if (number == 1) {
             vector<int> vec;
             deque<int> deq;
@@ -74,7 +75,7 @@ int main() {
                 cout << "Enter order id: ";
                 cin >> newID;
                 if (orderID.find(newID) == orderID.end()) {
-                    cout << "Enter ordeer info: ";
+                    cout << "Enter order info: ";
                     cin.ignore();
                     getline(cin, info);
 
@@ -86,7 +87,7 @@ int main() {
                     cout << "ID already this.\n";
                 }
 
-                cout << "Stop addind ordeers y/n?: ";
+                cout << "Stop adding orders y/n?: ";
                 cin >> name;
                 cin.ignore();
                 if (name == "y" or name == "Y") {break;}
@@ -99,6 +100,46 @@ int main() {
 
 
 
+
+
+
+        }
+        if (number == 3) {
+            set<int> temperatures;
+            srand(time(0));
+
+            while (temperatures.size() < 12) {
+                int temp = rand() % 100;
+                temperatures.insert(temp);
+            }
+
+            cout << "Temperatures: ";
+            for (auto id : temperatures) {
+                cout << id << " ";
+            }
+            cout << endl;
+
+            int maxTemp = *temperatures.begin();
+            for (auto it = temperatures.begin(); it != temperatures.end(); ++it) {
+                if (*it > maxTemp) {
+                    maxTemp = *it;
+                }
+            }
+
+            cout << "Max temperature: " << maxTemp << endl;
+
+            deque<int> lowerTemps;
+            for (auto it = temperatures.begin(); it != temperatures.end(); ++it) {
+                if (*it < maxTemp) {
+                    lowerTemps.push_back(*it);
+                }
+            }
+
+            cout << "New deque: ";
+            for (int i : lowerTemps) {
+                cout << i << " ";
+            }
+            cout << endl;
 
 
 
